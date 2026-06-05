@@ -4,7 +4,7 @@
 
 > *"Knowing the EU AI Act exists is not compliance. Understanding which parts of it apply to you — and why — is."*
 
-[![View Live Demo](https://img.shields.io/badge/View%20Live%20Demo-%230070f3?style=for-the-badge&logo=vercel&logoColor=white)](https://meridian-ai.vercel.app)
+[![View Live Demo](https://img.shields.io/badge/View%20Live%20Demo-%230070f3?style=for-the-badge&logo=vercel&logoColor=white)](https://meridian-one-weld.vercel.app)
 
 ---
 
