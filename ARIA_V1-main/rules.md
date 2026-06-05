@@ -1,5 +1,5 @@
 # rules.md
-# ARIA — Operating Rules
+# MERIDIAN — Operating Rules
 
 ## Hierarchy of Rules
 
