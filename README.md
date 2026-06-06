@@ -1,6 +1,6 @@
 # MERIDIAN
 
-**Multi-jurisdictional Regulatory Intelligence and Decision Infrastructure for AI Navigation — built as a portfolio demonstrating what AI compliance research looks like when it's done to a professional standard.**
+**Multi-jurisdictional Regulatory Intelligence and Decision Infrastructure for AI Navigation.**
 
 > *"Knowing the EU AI Act exists is not compliance. Understanding which parts of it apply to you — and why — is."*
 
@@ -10,32 +10,34 @@
 
 ## What This Is
 
-MERIDIAN is a React application that helps organizations understand which AI regulations actually apply to them. Most AI governance tools present a wall of frameworks and leave you to figure out relevance yourself. MERIDIAN flips that: it starts with your organization, maps your specific exposure, and produces a structured compliance output scoped to your situation.
+Two components. One output.
 
-The tool has two components working together:
+**The React app** is a client-side portfolio demo deployed on Vercel. A 4-stage intake form scopes the organization: role in the AI supply chain, sector, geography, AI activity, biometric data exposure, oversight model, and maturity. It generates a 6-tab interactive compliance report covering jurisdiction applicability, obligations, cross-cutting themes, an action plan, and a full sources register. No backend. No external API calls. Client-side only.
 
-**The React app** — a client-side portfolio demo deployed on Vercel. A multi-stage intake form scopes the organization (type, sector, geography, AI activity), then generates an interactive tabbed report covering jurisdiction applicability, obligations, cross-cutting themes, an action plan, and a sources register. No backend. No external API calls. The demo report is hardcoded to a realistic sample case — SignalPath Technologies, a US accessibility tech company with EU, UK, and Canadian regulatory exposure — chosen because biometric processing in an accessibility context surfaces a more complex and instructive compliance profile than a generic fintech scenario.
+**The Claude Project knowledge base** is the intelligence layer. Ten structured markdown files loaded into a Claude Project: a researcher identity, 12 operating rules, a branching elicitation protocol, a jurisdiction routing engine, a six-stage research methodology, a live source fetching protocol, a tiered source allowlist, and worked calibration examples. When connected, MERIDIAN runs the full elicitation, applies applicability logic across 40+ frameworks in 15 jurisdictions, fetches primary sources in real time, and produces citable, tiered compliance output. The React app shows what that output looks like. The Claude Project delivers it with live research.
 
-**The Claude Project knowledge base** — a structured set of markdown files loaded into a Claude Project. This is the actual intelligence layer. When connected, MERIDIAN functions as a live regulatory research assistant: it runs the elicitation protocol, applies applicability logic across 40+ frameworks, fetches primary sources, and produces citable, tiered compliance outputs. The React app demonstrates the output format. The Claude Project delivers it with live research.
+The demo report is hardcoded to a realistic scenario: SignalPath Technologies. That scenario was chosen deliberately — more on it below.
 
 ---
 
 ## The Scenario
 
-**Organization:** SignalPath Technologies — a fictional accessibility technology company providing AI-powered communication services for Deaf and hard-of-hearing communities. 680 employees. Incorporated in Delaware, headquartered in Salt Lake City. Users in the United States (nationwide), Canada, United Kingdom, and Germany.
+**Organization:** SignalPath Technologies. Fictional accessibility technology company providing AI-powered communication services for Deaf and hard-of-hearing communities. 680 employees. Incorporated in Delaware, headquartered in Salt Lake City. Users across the United States, Canada, United Kingdom, and Germany.
 
-**The AI system at the center of this analysis:** Real-time speech and sign language recognition, automated captioning, and biometric voice and gesture processing — deployed via third-party GPAI API with certified human captioners on-the-loop.
+**The AI system:** Real-time speech and sign language recognition, automated captioning, biometric voice and gesture processing. Deployed via third-party GPAI API. Certified human captioners on-the-loop.
 
-**The compliance question this demo answers:** What regulatory obligations apply to a US company that processes biometric data from Deaf users across four jurisdictions — and what is the enforcement exposure if it gets this wrong?
+**The compliance question:** What regulatory obligations apply to a US company processing biometric data from Deaf users across four jurisdictions — and what is the enforcement exposure if it gets this wrong?
 
-The answer covers Illinois BIPA (live class action risk), EU AI Act high-risk classification (biometric processing triggers Annex III), FCC CVAA captioning accuracy obligations, UK GDPR special category data, Colorado AI Act (in force February 2026), and Canada CPPA approaching. It is a harder and more instructive scenario than a standard fintech credit scoring example because the biometric processing is purpose-essential, not incidental — the organization cannot simply remove it to reduce compliance burden.
+The answer: Illinois BIPA with live class action risk. EU AI Act Annex III high-risk classification triggered by biometric processing. FCC CVAA captioning accuracy obligations. UK GDPR Article 9 special category data. Colorado AI Act in force February 2026. Canada CPPA approaching.
+
+A standard fintech credit scoring scenario would have been easier to build and less instructive to read. SignalPath was chosen because the biometric processing is purpose-essential — removing it eliminates the product entirely. The organization cannot reduce its compliance burden by removing the trigger. That constraint surfaces obligations most demo scenarios never reach.
 
 ---
 
 ## Application Flow
 
 ```
-Landing → Organization Scoping (4 stages) → Generate Report → Interactive Report (6 tabs)
+Landing  →  Organization Scoping (4 stages)  →  Generate Report  →  Interactive Report (6 tabs)
 ```
 
 ### Elicitation — 4 Stages
@@ -43,48 +45,47 @@ Landing → Organization Scoping (4 stages) → Generate Report → Interactive 
 | Stage | What It Captures |
 |-------|-----------------|
 | **Your Organization** | Role in AI supply chain (provider / deployer / both), sector, size |
-| **Where Your Users & Outputs Land** | Country of incorporation, user jurisdictions, where AI output is consumed |
-| **The AI System** | Activity type, biometric/sensitive data processing, GPAI dependency, human oversight model |
-| **Maturity & Purpose** | Deployment stage, deliverable needed (obligations map / gap assessment / board briefing / audit preparation) |
+| **Where Your Users and Outputs Land** | Country of incorporation, user jurisdictions, where AI output is consumed |
+| **The AI System** | Activity type, biometric and sensitive data processing, GPAI dependency, human oversight model |
+| **Maturity and Purpose** | Deployment stage, deliverable needed (obligations map / gap assessment / board briefing / audit preparation) |
 
-The biometric data question in Stage 3 is a deliberate design choice. It is the single highest-impact trigger in the current regulatory landscape — EU AI Act Annex III, Illinois BIPA, UK GDPR Article 9, and Canada CPPA all turn on it. Undersurfacing it produces materially incomplete output.
+The biometric data question in Stage 3 is a deliberate design choice. It is the single highest-impact trigger in the current regulatory landscape. EU AI Act Annex III, Illinois BIPA, UK GDPR Article 9, and Canada CPPA all turn on it. Undersurfacing it produces materially incomplete output.
 
 ### Report — 6 Tabs
 
 | Tab | Content |
 |-----|---------|
 | **Overview** | Organization profile, top priority obligations, jurisdiction matrix |
-| **Map** | Interactive jurisdiction map — click any region to see tier, trigger, and penalty |
+| **Map** | Interactive jurisdiction map. Click any region to see tier, trigger, and penalty |
 | **Obligations** | Expandable obligation cards with requirement text, action steps, and source citations |
 | **Cross-Cutting** | Themes that appear across multiple jurisdictions with a conservative approach that satisfies all simultaneously |
-| **Action Plan** | prioritized compliance roadmap by horizon: immediate (0–3 months), near-term (3–12 months), medium-term (12–24 months) |
-| **Sources & Confidence** | Full sources register with tier, citation, and confidence flag; unknowns register with open legal questions |
+| **Action Plan** | Prioritized compliance roadmap by horizon: immediate (0–3 months), near-term (3–12 months), medium-term (12–24 months) |
+| **Sources and Confidence** | Full sources register with tier, citation, and confidence flag. Unknowns register with open legal questions |
 
 ---
 
 ## The Claude Project Knowledge Base
 
-The `meridian/` directory contains the markdown intelligence layer that powers MERIDIAN when loaded into a Claude Project. These files are not imported into the React app — they are loaded as project knowledge and govern how MERIDIAN operates as a live research assistant.
+The `meridian/knowledge-base/` directory contains the markdown intelligence layer. These files are not imported into the React app. They are loaded as Claude Project knowledge and govern how MERIDIAN operates as a live research assistant.
 
 ```
-meridian/
-└── knowledge-base/
-    ├── identity.md              # Who MERIDIAN is and what it does
-    ├── rules.md                 # Operating rules — research discipline, source hierarchy
-    ├── elicitation.md           # Structured intake protocol
-    ├── applicability-logic.md   # Jurisdiction routing logic
-    ├── methodology.md           # Research methodology and confidence framework
-    ├── research-protocol.md     # Live source fetching protocol
-    ├── sources.md               # Tiered source allowlist
-    ├── examples.md              # Worked examples for calibration
-    ├── jurisdictions/           # Per-jurisdiction regulatory summaries (15 jurisdictions)
-    ├── sectoral/                # Sector-specific obligation overlays
-    └── output/                  # HTML template and synthesis rules
+meridian/knowledge-base/
+├── identity.md              # Researcher identity, domain scope, honesty standards
+├── rules.md                 # 12 operating rules — non-negotiables
+├── elicitation.md           # Branching intake protocol
+├── applicability-logic.md   # Jurisdiction routing engine
+├── methodology.md           # Six-stage investigative research loop
+├── research-protocol.md     # Live source fetching and novel discovery protocol
+├── sources.md               # Global tiered source allowlist and denylist
+├── examples.md              # Three worked examples across different org profiles
+├── jurisdictions/           # Per-jurisdiction regulatory summaries (15 jurisdictions)
+├── sectoral/                # Sector-specific obligation overlays
+└── output/                  # HTML report schema and cross-jurisdiction synthesis rules
 ```
 
-**Rule 0 of the knowledge base:** MERIDIAN never produces regulatory output from training data alone. Every analysis is built from live-fetched primary sources — legislation, implementing regulations, and enforcement guidance — cited to article and provision. If live fetching is unavailable, MERIDIAN says so rather than silently producing training-data output as though it were current research.
+Rule 0: MERIDIAN never produces regulatory output from training data alone. Every analysis is built from live-fetched primary sources — legislation, implementing regulations, and enforcement guidance — cited to article and provision. If live fetching is unavailable, MERIDIAN says so. It does not silently substitute training data.
 
-This matters because AI regulation is moving fast enough that six-month-old training data is a compliance liability, not an asset.
+AI regulation moves fast enough that six-month-old training data is a compliance liability. That is the reason for the rule.
 
 ---
 
@@ -96,26 +97,26 @@ MERIDIAN/
 ├── .gitignore
 └── meridian/
     ├── src/
-    │   ├── App.jsx              # Landing page and routing
-    │   ├── ElicitationWidget.jsx# 4-stage intake form
-    │   ├── DemoReport.jsx       # 6-tab interactive report
-    │   └── main.jsx             # React entry point
+    │   ├── App.jsx                  # Landing page and routing
+    │   ├── ElicitationWidget.jsx    # 4-stage intake form
+    │   ├── DemoReport.jsx           # 6-tab interactive report
+    │   └── main.jsx                 # React entry point
     ├── index.html
     ├── package.json
     ├── vite.config.js
     └── knowledge-base/
-        ├── CLAUDE.md            # AI operating instructions
-        ├── identity.md          # Researcher identity and scope
-        ├── rules.md             # Operating rules — non-negotiables
-        ├── elicitation.md       # Intake protocol
-        ├── applicability-logic.md # Jurisdiction routing logic
-        ├── methodology.md       # Research methodology
-        ├── research-protocol.md # Live source fetching protocol
-        ├── sources.md           # Tiered source allowlist
-        ├── examples.md          # Worked examples for calibration
-        ├── jurisdictions/       # Per-jurisdiction regulatory briefs
-        ├── sectoral/            # Sector-specific obligation overlays
-        └── output/              # HTML template and synthesis rules
+        ├── CLAUDE.md                # AI operating instructions
+        ├── identity.md
+        ├── rules.md
+        ├── elicitation.md
+        ├── applicability-logic.md
+        ├── methodology.md
+        ├── research-protocol.md
+        ├── sources.md
+        ├── examples.md
+        ├── jurisdictions/
+        ├── sectoral/
+        └── output/
 ```
 
 ---
@@ -123,9 +124,9 @@ MERIDIAN/
 ## Stack
 
 - React 18 + Vite
-- Client-side only — no backend, no external API calls in the demo
-- Inline styles throughout — no Tailwind, no CSS modules
-- Deployed on Vercel from GitHub (auto-deploy on push)
+- Client-side only. No backend. No external API calls in the demo
+- Inline styles throughout. No Tailwind, no CSS modules
+- Deployed on Vercel from GitHub. Auto-deploys on push to main
 
 ---
 
@@ -139,4 +140,4 @@ MERIDIAN/
 
 Jonathan Khan — Data Infrastructure and AI Governance Professional.
 
-[LinkedIn](https://www.linkedin.com/in/jonathan-k-184393120/) · [SignalPath AI Governance Center](https://deaf-accessibility-ai-governance.streamlit.app/)
+[LinkedIn](https://www.linkedin.com/in/jonathan-k-184393120/) · [Deaf-Accessibility-AI-Governance](https://github.com/datadynamo-hub/Deaf-Accessibility-AI-Governance)

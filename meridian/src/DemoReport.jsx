@@ -16,7 +16,7 @@ const RESEARCH_DATA = {
     deliverable: "Obligations map and gap assessment",
     biometricProcessing: "Yes — voiceprints and sign language gesture data (biometric identifiers)",
   },
-  generatedDate: "June 2025",
+  generatedDate: "June 2026",
   jurisdictions: [
     {
       code: "USA",
