@@ -22,7 +22,7 @@ The tool has two components working together:
 
 ## The Scenario
 
-**organization:** SignalPath Technologies — a fictional accessibility technology company providing AI-powered communication services for Deaf and hard-of-hearing communities. 680 employees. Incorporated in Delaware, headquartered in Salt Lake City. Users in the United States (nationwide), Canada, United Kingdom, and Germany.
+**Organization:** SignalPath Technologies — a fictional accessibility technology company providing AI-powered communication services for Deaf and hard-of-hearing communities. 680 employees. Incorporated in Delaware, headquartered in Salt Lake City. Users in the United States (nationwide), Canada, United Kingdom, and Germany.
 
 **The AI system at the center of this analysis:** Real-time speech and sign language recognition, automated captioning, and biometric voice and gesture processing — deployed via third-party GPAI API with certified human captioners on-the-loop.
 
@@ -35,14 +35,14 @@ The answer covers Illinois BIPA (live class action risk), EU AI Act high-risk cl
 ## Application Flow
 
 ```
-Landing → organization Scoping (4 stages) → Generate Report → Interactive Report (6 tabs)
+Landing → Organization Scoping (4 stages) → Generate Report → Interactive Report (6 tabs)
 ```
 
 ### Elicitation — 4 Stages
 
 | Stage | What It Captures |
 |-------|-----------------|
-| **Your organization** | Role in AI supply chain (provider / deployer / both), sector, size |
+| **Your Organization** | Role in AI supply chain (provider / deployer / both), sector, size |
 | **Where Your Users & Outputs Land** | Country of incorporation, user jurisdictions, where AI output is consumed |
 | **The AI System** | Activity type, biometric/sensitive data processing, GPAI dependency, human oversight model |
 | **Maturity & Purpose** | Deployment stage, deliverable needed (obligations map / gap assessment / board briefing / audit preparation) |
@@ -53,7 +53,7 @@ The biometric data question in Stage 3 is a deliberate design choice. It is the 
 
 | Tab | Content |
 |-----|---------|
-| **Overview** | organization profile, top priority obligations, jurisdiction matrix |
+| **Overview** | Organization profile, top priority obligations, jurisdiction matrix |
 | **Map** | Interactive jurisdiction map — click any region to see tier, trigger, and penalty |
 | **Obligations** | Expandable obligation cards with requirement text, action steps, and source citations |
 | **Cross-Cutting** | Themes that appear across multiple jurisdictions with a conservative approach that satisfies all simultaneously |
@@ -68,17 +68,18 @@ The `meridian/` directory contains the markdown intelligence layer that powers M
 
 ```
 meridian/
-├── identity.md              # Who MERIDIAN is and what it does
-├── rules.md                 # Operating rules — research discipline, source hierarchy
-├── elicitation.md           # Structured intake protocol
-├── applicability-logic.md   # Jurisdiction routing logic
-├── methodology.md           # Research methodology and confidence framework
-├── research-protocol.md     # Live source fetching protocol
-├── sources.md               # Tiered source allowlist
-├── examples.md              # Worked examples for calibration
-├── jurisdictions/           # Per-jurisdiction regulatory summaries (15 jurisdictions)
-├── sectoral/                # Sector-specific obligation overlays
-└── output/                  # HTML template and synthesis rules
+└── knowledge-base/
+    ├── identity.md              # Who MERIDIAN is and what it does
+    ├── rules.md                 # Operating rules — research discipline, source hierarchy
+    ├── elicitation.md           # Structured intake protocol
+    ├── applicability-logic.md   # Jurisdiction routing logic
+    ├── methodology.md           # Research methodology and confidence framework
+    ├── research-protocol.md     # Live source fetching protocol
+    ├── sources.md               # Tiered source allowlist
+    ├── examples.md              # Worked examples for calibration
+    ├── jurisdictions/           # Per-jurisdiction regulatory summaries (15 jurisdictions)
+    ├── sectoral/                # Sector-specific obligation overlays
+    └── output/                  # HTML template and synthesis rules
 ```
 
 **Rule 0 of the knowledge base:** MERIDIAN never produces regulatory output from training data alone. Every analysis is built from live-fetched primary sources — legislation, implementing regulations, and enforcement guidance — cited to article and provision. If live fetching is unavailable, MERIDIAN says so rather than silently producing training-data output as though it were current research.
@@ -94,23 +95,27 @@ MERIDIAN/
 ├── README.md
 ├── .gitignore
 └── meridian/
-    ├── demo-report.jsx          # 6-tab interactive report component
-    ├── elicitation-widget.jsx   # 4-stage intake form component
+    ├── src/
+    │   ├── App.jsx              # Landing page and routing
+    │   ├── ElicitationWidget.jsx# 4-stage intake form
+    │   ├── DemoReport.jsx       # 6-tab interactive report
+    │   └── main.jsx             # React entry point
     ├── index.html
     ├── package.json
     ├── vite.config.js
-    ├── CLAUDE.md
-    ├── identity.md              # Knowledge base: researcher identity
-    ├── rules.md                 # Knowledge base: operating rules
-    ├── elicitation.md           # Knowledge base: intake protocol
-    ├── applicability-logic.md   # Knowledge base: jurisdiction routing
-    ├── methodology.md           # Knowledge base: research methodology
-    ├── research-protocol.md     # Knowledge base: live source protocol
-    ├── sources.md               # Knowledge base: tiered source allowlist
-    ├── examples.md              # Knowledge base: worked examples
-    ├── jurisdictions/           # Per-jurisdiction regulatory briefs
-    ├── sectoral/                # Sector-specific obligation overlays
-    └── output/                  # HTML template and synthesis rules
+    └── knowledge-base/
+        ├── CLAUDE.md            # AI operating instructions
+        ├── identity.md          # Researcher identity and scope
+        ├── rules.md             # Operating rules — non-negotiables
+        ├── elicitation.md       # Intake protocol
+        ├── applicability-logic.md # Jurisdiction routing logic
+        ├── methodology.md       # Research methodology
+        ├── research-protocol.md # Live source fetching protocol
+        ├── sources.md           # Tiered source allowlist
+        ├── examples.md          # Worked examples for calibration
+        ├── jurisdictions/       # Per-jurisdiction regulatory briefs
+        ├── sectoral/            # Sector-specific obligation overlays
+        └── output/              # HTML template and synthesis rules
 ```
 
 ---

@@ -131,7 +131,7 @@ Novel detection query `"HR AI software regulation new state 2025"` — state AI 
 | Sector | General technology — B2B SaaS (project management / productivity) |
 | Established | United States (Delaware, US HQ) |
 | Users / output consumed | EU (France, Germany, Spain), UK, US, Singapore, UAE |
-| AI type | Content generation, document summarisation, meeting transcription and analysis, task prioritisation recommendations |
+| AI type | Content generation, document summarization, meeting transcription and analysis, task prioritization recommendations |
 | GPAI dependency | Yes — uses third-party GPAI API |
 | Human oversight | Advisory only — AI output is one input, no binding decisions on individuals |
 | Maturity | In production, first compliance review |

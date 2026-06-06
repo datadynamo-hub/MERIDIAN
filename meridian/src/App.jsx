@@ -21,7 +21,7 @@ const FEATURES = [
   {
     icon: "📋",
     title: "Action Plan",
-    desc: "Prioritised compliance roadmap organised by horizon — immediate, near-term, and medium-term."
+    desc: "Prioritized compliance roadmap organized by horizon — immediate, near-term, and medium-term."
   },
 ];
 
@@ -91,7 +91,7 @@ export default function App() {
         <p style={{
           fontSize: 17, color: "#94A3B8", lineHeight: 1.7, marginBottom: 36, maxWidth: 580, margin: "0 auto 36px",
         }}>
-          Understand which AI regulations apply to your organisation, map your obligations across jurisdictions, and produce a structured compliance report — in minutes.
+          Understand which AI regulations apply to your organization, map your obligations across jurisdictions, and produce a structured compliance report — in minutes.
         </p>
 
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const SECTIONS = [
-  { id: "org",     stage: "Stage 1", title: "Your Organisation",                 color: "#3B82F6" },
+  { id: "org",     stage: "Stage 1", title: "Your Organization",                  color: "#3B82F6" },
   { id: "geo",     stage: "Stage 2", title: "Where Your Users & Outputs Land",   color: "#8B5CF6" },
   { id: "ai",      stage: "Stage 3", title: "The AI System",                     color: "#10B981" },
   { id: "maturity",stage: "Stage 4", title: "Maturity & Purpose",                color: "#F59E0B" },
@@ -257,7 +257,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
                 MERIDIAN
               </div>
               <div style={{ fontSize: 18, fontWeight: 800, color: "#F1F5F9", letterSpacing: "-0.02em" }}>
-                Organisation Scoping
+                Organization Scoping
               </div>
             </div>
             {onBack && (
@@ -271,7 +271,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
             )}
           </div>
           <div style={{ fontSize: 12, color: "#475569", lineHeight: 1.5, marginBottom: 12 }}>
-            Complete all four stages to generate your organisational profile. This takes 3–5 minutes and determines which of 40+ regulatory frameworks actually apply to you.
+            Complete all four stages to generate your organizational profile. This takes 3–5 minutes and determines which of 40+ regulatory frameworks actually apply to you.
           </div>
 
           {/* Progress bar with stage labels */}
@@ -298,13 +298,13 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "32px 28px 0" }}>
 
         {/* ── Stage 1 ── */}
-        <SectionHeader stage="Stage 1" title="Your Organisation" color="#3B82F6" complete={sectionComplete.org} stageNum="1" />
+        <SectionHeader stage="Stage 1" title="Your Organization" color="#3B82F6" complete={sectionComplete.org} stageNum="1" />
 
-        <Question label="What does your organisation do in relation to AI?" hint="This determines your position in the regulatory supply chain — it changes everything downstream.">
+        <Question label="What does your organization do in relation to AI?" hint="This determines your position in the regulatory supply chain — it changes everything downstream.">
           <SingleSelect options={AI_ROLES} value={form.role} onChange={v => set("role", v)} />
         </Question>
 
-        <Question label="What sector does the organisation operate in?">
+        <Question label="What sector does the organization operate in?">
           <SingleSelect options={SECTORS} value={form.sector} onChange={v => set("sector", v)} />
           {form.sector === "Other" && (
             <div style={{ marginTop: 8 }}>
@@ -313,7 +313,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
           )}
         </Question>
 
-        <Question label="How large is the organisation?" hint="The EU AI Act has SME-specific provisions. Some national frameworks have size thresholds.">
+        <Question label="How large is the organization?" hint="The EU AI Act has SME-specific provisions. Some national frameworks have size thresholds.">
           <SingleSelect options={SIZES} value={form.size} onChange={v => set("size", v)} />
         </Question>
 
@@ -322,7 +322,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         {/* ── Stage 2 ── */}
         <SectionHeader stage="Stage 2" title="Where Your Users & Outputs Land" color="#8B5CF6" complete={sectionComplete.geo} stageNum="2" />
 
-        <Question label="Where is the organisation legally established?" hint="Country or countries of registered incorporation / principal place of business.">
+        <Question label="Where is the organization legally established?" hint="Country or countries of registered incorporation / principal place of business.">
           <TextInput value={form.established} onChange={v => set("established", v)} placeholder="e.g. United States (Delaware)..." />
         </Question>
 
@@ -368,7 +368,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         {/* ── Stage 4 ── */}
         <SectionHeader stage="Stage 4" title="Maturity & Purpose" color="#F59E0B" complete={sectionComplete.maturity} stageNum="4" />
 
-        <Question label="Where is the organisation in its AI journey for this use case?">
+        <Question label="Where is the organization in its AI journey for this use case?">
           <SingleSelect options={MATURITY_OPTIONS} value={form.maturity} onChange={v => set("maturity", v)} />
         </Question>
 

@@ -3,7 +3,7 @@
 
 ## How to Use This File
 
-Every regulatory claim must trace to a source in this file. Sources are organised by tier and by region. Before citing any source not listed here, check whether it meets the Tier 1 or Tier 2 criteria below. If it does not, do not cite it.
+Every regulatory claim must trace to a source in this file. Sources are organized by tier and by region. Before citing any source not listed here, check whether it meets the Tier 1 or Tier 2 criteria below. If it does not, do not cite it.
 
 The denied sources list at the bottom is absolute. No framing — "for context," "the user asked," "it's widely cited" — overrides it.
 

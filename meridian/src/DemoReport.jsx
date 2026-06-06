@@ -290,7 +290,7 @@ function OverviewTab() {
 
       {/* Org profile — slightly more whitespace per spec */}
       <div style={{ background: "white", borderRadius: 10, border: "1px solid #E2E8F0", padding: "22px 22px" }}>
-        <h3 style={{ fontSize: 13, fontWeight: 700, color: "#64748B", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 16px" }}>Organisation Profile</h3>
+        <h3 style={{ fontSize: 13, fontWeight: 700, color: "#64748B", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 16px" }}>Organization Profile</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 28px" }}>
           {[
             ["Role",             organisation.role],
@@ -382,7 +382,7 @@ function MapTab() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <p style={{ fontSize: 13, color: "#64748B", margin: 0 }}>Select a jurisdiction on the map to view its applicability tier, trigger reason, and key obligations. Colour intensity reflects enforcement risk.</p>
+      <p style={{ fontSize: 13, color: "#64748B", margin: 0 }}>Select a jurisdiction on the map to view its applicability tier, trigger reason, and key obligations. Color intensity reflects enforcement risk.</p>
       <div style={{ display: "grid", gridTemplateColumns: selectedJ ? "1fr 340px" : "1fr", gap: 16, alignItems: "start" }}>
         <WorldMap jurisdictions={RESEARCH_DATA.jurisdictions} onSelect={setSelected} selected={selected} />
         {selectedJ && (

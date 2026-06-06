@@ -77,7 +77,7 @@ For each jurisdiction and each obligation within it, assign a confidence flag:
 
 **[SETTLED]** — The obligation is established in statute or consistent regulatory enforcement. Legal challenge is possible but unlikely to succeed. Use language like "requires," "must," "the regulation provides."
 
-**[CONTESTED]** — Two or more credible legal positions exist. Enforcement practice may not have established a precedent. Flag the dispute explicitly: *"There is genuine disagreement about whether [X] — [position A] vs [position B]. The current regulatory guidance favours [A] but this has not been tested in [court/tribunal]."*
+**[CONTESTED]** — Two or more credible legal positions exist. Enforcement practice may not have established a precedent. Flag the dispute explicitly: *"There is genuine disagreement about whether [X] — [position A] vs [position B]. The current regulatory guidance favors [A] but this has not been tested in [court/tribunal]."*
 
 **[PENDING]** — The obligation is in draft legislation, consultation, or implementing measure not yet in force. Flag with expected timeline: *"If enacted as drafted, this would require [X] from [date]."*
 
