@@ -2,7 +2,7 @@
 
 **Multi-jurisdictional Regulatory Intelligence and Decision Infrastructure for AI Navigation.**
 
-> *"Knowing the EU AI Act exists is not compliance. Understanding which parts of it apply to you — and why — is."*
+> *"Knowing the EU AI Act exists is not compliance. Understanding which parts of it apply to you, and why, is."*
 
 [![View Live Demo](https://img.shields.io/badge/View%20Live%20Demo-%230070f3?style=for-the-badge&logo=vercel&logoColor=white)](https://meridian-one-weld.vercel.app)
 
@@ -14,9 +14,9 @@ Two components. One output.
 
 **The React app** is a client-side portfolio demo deployed on Vercel. A 4-stage intake form scopes the organization: role in the AI supply chain, sector, geography, AI activity, biometric data exposure, oversight model, and maturity. It generates a 6-tab interactive compliance report covering jurisdiction applicability, obligations, cross-cutting themes, an action plan, and a full sources register. No backend. No external API calls. Client-side only.
 
-**The Claude Project knowledge base** is the intelligence layer. Ten structured markdown files loaded into a Claude Project: a researcher identity, 12 operating rules, a branching elicitation protocol, a jurisdiction routing engine, a six-stage research methodology, a live source fetching protocol, a tiered source allowlist, and worked calibration examples. When connected, MERIDIAN runs the full elicitation, applies applicability logic across 40+ frameworks in 15 jurisdictions, fetches primary sources in real time, and produces citable, tiered compliance output. The React app shows what that output looks like. The Claude Project delivers it with live research.
+**The MERIDIAN Knowledge Base** is the intelligence layer. Ten structured markdown files: a researcher identity, 12 operating rules, a branching elicitation protocol, a jurisdiction routing engine, a six-stage research methodology, a live source fetching protocol, a tiered source allowlist, and worked calibration examples. When connected, MERIDIAN runs the full elicitation, applies applicability logic across 40+ frameworks in 15 jurisdictions, fetches primary sources in real time, and produces citable, tiered compliance output. The React app shows what that output looks like. The knowledge base delivers it with live research.
 
-The demo report is hardcoded to a realistic scenario: SignalPath Technologies. That scenario was chosen deliberately — more on it below.
+The demo report is hardcoded to a realistic scenario: SignalPath Technologies. That scenario was chosen deliberately. More on it below.
 
 ---
 
@@ -26,11 +26,11 @@ The demo report is hardcoded to a realistic scenario: SignalPath Technologies. T
 
 **The AI system:** Real-time speech and sign language recognition, automated captioning, biometric voice and gesture processing. Deployed via third-party GPAI API. Certified human captioners on-the-loop.
 
-**The compliance question:** What regulatory obligations apply to a US company processing biometric data from Deaf users across four jurisdictions — and what is the enforcement exposure if it gets this wrong?
+**The compliance question:** What regulatory obligations apply to a US company processing biometric data from Deaf users across four jurisdictions, and what is the enforcement exposure if it gets this wrong?
 
 The answer: Illinois BIPA with live class action risk. EU AI Act Annex III high-risk classification triggered by biometric processing. FCC CVAA captioning accuracy obligations. UK GDPR Article 9 special category data. Colorado AI Act in force February 2026. Canada CPPA approaching.
 
-A standard fintech credit scoring scenario would have been easier to build and less instructive to read. SignalPath was chosen because the biometric processing is purpose-essential — removing it eliminates the product entirely. The organization cannot reduce its compliance burden by removing the trigger. That constraint surfaces obligations most demo scenarios never reach.
+A standard fintech credit scoring scenario would have been easier to build and less instructive to read. SignalPath was chosen because the biometric processing is purpose-essential. Removing it eliminates the product entirely. The organization cannot reduce its compliance burden by removing the trigger. That constraint surfaces obligations most demo scenarios never reach.
 
 ---
 
@@ -64,14 +64,14 @@ The biometric data question in Stage 3 is a deliberate design choice. It is the 
 
 ---
 
-## The Claude Project Knowledge Base
+## The MERIDIAN Knowledge Base
 
-The `meridian/knowledge-base/` directory contains the markdown intelligence layer. These files are not imported into the React app. They are loaded as Claude Project knowledge and govern how MERIDIAN operates as a live research assistant.
+The `meridian/knowledge-base/` directory contains the markdown intelligence layer. These files are not imported into the React app. They govern how MERIDIAN operates as a live research assistant.
 
 ```
 meridian/knowledge-base/
 ├── identity.md              # Researcher identity, domain scope, honesty standards
-├── rules.md                 # 12 operating rules — non-negotiables
+├── rules.md                 # 12 operating rules, non-negotiables
 ├── elicitation.md           # Branching intake protocol
 ├── applicability-logic.md   # Jurisdiction routing engine
 ├── methodology.md           # Six-stage investigative research loop
@@ -83,7 +83,7 @@ meridian/knowledge-base/
 └── output/                  # HTML report schema and cross-jurisdiction synthesis rules
 ```
 
-Rule 0: MERIDIAN never produces regulatory output from training data alone. Every analysis is built from live-fetched primary sources — legislation, implementing regulations, and enforcement guidance — cited to article and provision. If live fetching is unavailable, MERIDIAN says so. It does not silently substitute training data.
+Rule 0: MERIDIAN never produces regulatory output from training data alone. Every analysis is built from live-fetched primary sources: legislation, implementing regulations, and enforcement guidance, cited to article and provision. If live fetching is unavailable, MERIDIAN says so. It does not silently substitute training data.
 
 AI regulation moves fast enough that six-month-old training data is a compliance liability. That is the reason for the rule.
 
@@ -138,6 +138,8 @@ MERIDIAN/
 
 ## About
 
-Jonathan Khan — Data Infrastructure and AI Governance Professional.
+This build: Jonathan Khan, Data Infrastructure and AI Governance Professional. MERIDIAN is original work. Built because most AI compliance tools tell you what regulations exist, not which ones apply to you. Building publicly.
 
-[LinkedIn](https://www.linkedin.com/in/jonathan-k-184393120/) · [Deaf-Accessibility-AI-Governance](https://github.com/datadynamo-hub/Deaf-Accessibility-AI-Governance)
+Follow the build on LinkedIn: [Jonathan Khan](https://www.linkedin.com/in/jonathan-k-184393120/)
+
+Related project: [Deaf-Accessibility-AI-Governance](https://github.com/datadynamo-hub/Deaf-Accessibility-AI-Governance)
