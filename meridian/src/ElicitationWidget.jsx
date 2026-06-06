@@ -1,10 +1,12 @@
 import { useState } from "react";
 
+const FONT = "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif";
+
 const SECTIONS = [
-  { id: "org",     stage: "Stage 1", title: "Your Organization",                  color: "#3B82F6" },
-  { id: "geo",     stage: "Stage 2", title: "Where Your Users & Outputs Land",   color: "#8B5CF6" },
-  { id: "ai",      stage: "Stage 3", title: "The AI System",                     color: "#10B981" },
-  { id: "maturity",stage: "Stage 4", title: "Maturity & Purpose",                color: "#F59E0B" },
+  { id: "org",      stage: "Stage 1", title: "Your Organization",               color: "#4314b6" },
+  { id: "geo",      stage: "Stage 2", title: "Where Your Users & Outputs Land", color: "#8A61EE" },
+  { id: "ai",       stage: "Stage 3", title: "The AI System",                   color: "#10B981" },
+  { id: "maturity", stage: "Stage 4", title: "Maturity & Purpose",              color: "#F59E0B" },
 ];
 
 const AI_ROLES = [
@@ -69,32 +71,32 @@ const OVERSIGHT_OPTIONS = [
 ];
 
 const BIOMETRIC_OPTIONS = [
-  { value: "yes",   label: "Yes",   desc: "The system processes biometric, health, or sensitive personal data" },
-  { value: "no",    label: "No",    desc: "No special category or biometric data is processed" },
-  { value: "unsure",label: "Unsure",desc: "Not certain — voice/behavioural data may qualify" },
+  { value: "yes",    label: "Yes",    desc: "The system processes biometric, health, or sensitive personal data" },
+  { value: "no",     label: "No",     desc: "No special category or biometric data is processed" },
+  { value: "unsure", label: "Unsure", desc: "Not certain — voice/behavioural data may qualify" },
 ];
 
 const MATURITY_OPTIONS = [
-  { value: "greenfield",  label: "Greenfield",              desc: "Designing from scratch, not yet built" },
-  { value: "pre-launch",  label: "Pre-launch",              desc: "Built — assessing compliance before going live" },
-  { value: "production",  label: "In production",           desc: "Deployed and operating, retrofitting compliance" },
-  { value: "board",       label: "Board / leadership review",desc: "High-level obligations map, not implementation detail" },
-  { value: "audit",       label: "Audit / assurance",       desc: "Validating an existing programme against current regulations" },
+  { value: "greenfield",  label: "Greenfield",               desc: "Designing from scratch, not yet built" },
+  { value: "pre-launch",  label: "Pre-launch",               desc: "Built — assessing compliance before going live" },
+  { value: "production",  label: "In production",            desc: "Deployed and operating, retrofitting compliance" },
+  { value: "board",       label: "Board / leadership review", desc: "High-level obligations map, not implementation detail" },
+  { value: "audit",       label: "Audit / assurance",        desc: "Validating an existing programme against current regulations" },
 ];
 
 const DELIVERABLES = [
-  { value: "obligations", label: "Obligations map",    desc: "What we have to do, by jurisdiction" },
-  { value: "gap",         label: "Gap assessment",     desc: "What we're not doing yet" },
-  { value: "board",       label: "Board briefing",     desc: "Executive summary for leadership" },
-  { value: "audit",       label: "Audit preparation",  desc: "Evidence pack for regulatory or third-party audit" },
-  { value: "unsure",      label: "I'm not sure yet",   desc: "Help me understand the landscape first" },
+  { value: "obligations", label: "Obligations map",   desc: "What we have to do, by jurisdiction" },
+  { value: "gap",         label: "Gap assessment",    desc: "What we're not doing yet" },
+  { value: "board",       label: "Board briefing",    desc: "Executive summary for leadership" },
+  { value: "audit",       label: "Audit preparation", desc: "Evidence pack for regulatory or third-party audit" },
+  { value: "unsure",      label: "I'm not sure yet",  desc: "Help me understand the landscape first" },
 ];
 
 // ── Shared input components ──────────────────────────────────────────────────
 
 function SingleSelect({ options, value, onChange }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
       {options.map((opt) => {
         const val   = typeof opt === "string" ? opt : opt.value;
         const label = typeof opt === "string" ? opt : opt.label;
@@ -102,23 +104,23 @@ function SingleSelect({ options, value, onChange }) {
         const sel   = value === val;
         return (
           <button key={val} onClick={() => onChange(val)} style={{
-            display: "flex", alignItems: "center", gap: 10,
-            padding: "10px 12px",
-            background: sel ? "rgba(59,130,246,0.12)" : "rgba(255,255,255,0.04)",
-            border: `1.5px solid ${sel ? "#3B82F6" : "rgba(255,255,255,0.1)"}`,
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "11px 14px",
+            background: sel ? "#E4DFFF" : "#FFFFFF",
+            border: `1.5px solid ${sel ? "#4314b6" : "#E6EAF1"}`,
             borderRadius: 8, cursor: "pointer", textAlign: "left", transition: "all 0.15s",
           }}>
             <div style={{
-              width: 16, height: 16, borderRadius: "50%", flexShrink: 0,
-              border: `2px solid ${sel ? "#3B82F6" : "rgba(255,255,255,0.3)"}`,
-              background: sel ? "#3B82F6" : "transparent",
+              width: 18, height: 18, borderRadius: "50%", flexShrink: 0,
+              border: `2px solid ${sel ? "#4314b6" : "#CBD5E1"}`,
+              background: sel ? "#4314b6" : "transparent",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               {sel && <div style={{ width: 6, height: 6, borderRadius: "50%", background: "white" }} />}
             </div>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: sel ? "#93C5FD" : "#E2E8F0" }}>{label}</div>
-              {desc && <div style={{ fontSize: 11, color: "#64748B", marginTop: 1 }}>{desc}</div>}
+              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#4314b6" : "#1E293B" }}>{label}</div>
+              {desc && <div style={{ fontSize: 13, color: "#64748B", marginTop: 2 }}>{desc}</div>}
             </div>
           </button>
         );
@@ -131,7 +133,7 @@ function MultiSelect({ options, values, onChange }) {
   const toggle = (val) =>
     values.includes(val) ? onChange(values.filter(v => v !== val)) : onChange([...values, val]);
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
       {options.map((opt) => {
         const val   = typeof opt === "string" ? opt : opt.value;
         const label = typeof opt === "string" ? opt : opt.label;
@@ -139,23 +141,23 @@ function MultiSelect({ options, values, onChange }) {
         const sel   = values.includes(val);
         return (
           <button key={val} onClick={() => toggle(val)} style={{
-            display: "flex", alignItems: "center", gap: 10,
-            padding: "10px 12px",
-            background: sel ? "rgba(16,185,129,0.1)" : "rgba(255,255,255,0.04)",
-            border: `1.5px solid ${sel ? "#10B981" : "rgba(255,255,255,0.1)"}`,
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "11px 14px",
+            background: sel ? "#E4DFFF" : "#FFFFFF",
+            border: `1.5px solid ${sel ? "#4314b6" : "#E6EAF1"}`,
             borderRadius: 8, cursor: "pointer", textAlign: "left", transition: "all 0.15s",
           }}>
             <div style={{
-              width: 16, height: 16, borderRadius: 4, flexShrink: 0,
-              border: `2px solid ${sel ? "#10B981" : "rgba(255,255,255,0.3)"}`,
-              background: sel ? "#10B981" : "transparent",
+              width: 18, height: 18, borderRadius: 4, flexShrink: 0,
+              border: `2px solid ${sel ? "#4314b6" : "#CBD5E1"}`,
+              background: sel ? "#4314b6" : "transparent",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
-              {sel && <span style={{ color: "white", fontSize: 11, lineHeight: 1 }}>✓</span>}
+              {sel && <span style={{ color: "white", fontSize: 12, lineHeight: 1 }}>✓</span>}
             </div>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: sel ? "#6EE7B7" : "#E2E8F0" }}>{label}</div>
-              {desc && <div style={{ fontSize: 11, color: "#64748B", marginTop: 1 }}>{desc}</div>}
+              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#4314b6" : "#1E293B" }}>{label}</div>
+              {desc && <div style={{ fontSize: 13, color: "#64748B", marginTop: 2 }}>{desc}</div>}
             </div>
           </button>
         );
@@ -169,9 +171,9 @@ function TextInput({ value, onChange, placeholder }) {
     <textarea value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} rows={2}
       style={{
         width: "100%",
-        background: "rgba(255,255,255,0.05)", border: "1.5px solid rgba(255,255,255,0.12)",
-        borderRadius: 8, padding: "10px 12px", fontSize: 13, color: "#E2E8F0",
-        resize: "vertical", fontFamily: "inherit", outline: "none",
+        background: "#FFFFFF", border: "1.5px solid #E6EAF1",
+        borderRadius: 8, padding: "11px 14px", fontSize: 15, color: "#1E293B",
+        resize: "vertical", fontFamily: FONT, outline: "none",
         boxSizing: "border-box", lineHeight: 1.5,
       }}
     />
@@ -180,22 +182,22 @@ function TextInput({ value, onChange, placeholder }) {
 
 function SectionHeader({ stage, title, color, complete, stageNum }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
       <div style={{
-        width: 32, height: 32, borderRadius: 8, flexShrink: 0,
-        background: complete ? color : "rgba(255,255,255,0.08)",
-        border: `1.5px solid ${complete ? color : "rgba(255,255,255,0.15)"}`,
+        width: 36, height: 36, borderRadius: 8, flexShrink: 0,
+        background: complete ? color : "#F1F5F8",
+        border: `1.5px solid ${complete ? color : "#E6EAF1"}`,
         display: "flex", alignItems: "center", justifyContent: "center",
         transition: "all 0.2s",
       }}>
         {complete
-          ? <span style={{ color: "white", fontSize: 14 }}>✓</span>
-          : <span style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)" }}>{stageNum}</span>
+          ? <span style={{ color: "white", fontSize: 15 }}>✓</span>
+          : <span style={{ fontSize: 13, fontWeight: 700, color: "#94A3B8" }}>{stageNum}</span>
         }
       </div>
       <div>
-        <div style={{ fontSize: 10, fontWeight: 700, color, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stage}</div>
-        <div style={{ fontSize: 15, fontWeight: 700, color: "#F1F5F9" }}>{title}</div>
+        <div style={{ fontSize: 11, fontWeight: 700, color, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stage}</div>
+        <div style={{ fontSize: 17, fontWeight: 700, color: "#1E293B" }}>{title}</div>
       </div>
     </div>
   );
@@ -203,9 +205,9 @@ function SectionHeader({ stage, title, color, complete, stageNum }) {
 
 function Question({ label, hint, children }) {
   return (
-    <div style={{ marginBottom: 22 }}>
-      <div style={{ fontSize: 13, fontWeight: 600, color: "#CBD5E1", marginBottom: 4 }}>{label}</div>
-      {hint && <div style={{ fontSize: 11, color: "#475569", marginBottom: 10, fontStyle: "italic" }}>{hint}</div>}
+    <div style={{ marginBottom: 24 }}>
+      <div style={{ fontSize: 15, fontWeight: 600, color: "#475569", marginBottom: 5 }}>{label}</div>
+      {hint && <div style={{ fontSize: 13, color: "#94A3B8", marginBottom: 11, fontStyle: "italic" }}>{hint}</div>}
       {children}
     </div>
   );
@@ -225,67 +227,67 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
   const set = (key, val) => setForm(f => ({ ...f, [key]: val }));
 
   const sectionComplete = {
-    org:     !!(form.role && form.sector && form.size),
-    geo:     !!(form.established && form.users && form.outputConsumed),
-    ai:      !!(form.aiActivities.length > 0 && form.gpai && form.oversight && form.biometric),
-    maturity:!!(form.maturity && form.deliverables.length > 0),
+    org:      !!(form.role && form.sector && form.size),
+    geo:      !!(form.established && form.users && form.outputConsumed),
+    ai:       !!(form.aiActivities.length > 0 && form.gpai && form.oversight && form.biometric),
+    maturity: !!(form.maturity && form.deliverables.length > 0),
   };
 
   const completedCount = Object.values(sectionComplete).filter(Boolean).length;
   const allComplete    = completedCount === 4;
 
-  const divider = <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "28px 0" }} />;
+  const divider = <div style={{ height: 1, background: "#E6EAF1", margin: "32px 0" }} />;
 
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(160deg, #0A0F1E 0%, #0F1D35 50%, #0A1628 100%)",
-      fontFamily: "'DM Sans', 'Segoe UI', system-ui, sans-serif",
+      background: "#FFFFFF",
+      fontFamily: FONT,
       padding: "0 0 60px",
     }}>
       {/* Header */}
       <div style={{
-        background: "linear-gradient(135deg, #1a1a2e 0%, #1E3A5F 100%)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
-        padding: "20px 28px 18px",
+        background: "#FFFFFF",
+        borderBottom: "1px solid #E6EAF1",
+        padding: "22px 32px 20px",
         position: "sticky", top: 0, zIndex: 10,
       }}>
-        <div style={{ maxWidth: 680, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
             <div>
-              <div style={{ fontSize: 10, fontWeight: 700, color: "#3B82F6", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 3 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "#4314b6", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 3 }}>
                 MERIDIAN
               </div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F1F5F9", letterSpacing: "-0.02em" }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "#1E293B", letterSpacing: "-0.02em" }}>
                 Organization Scoping
               </div>
             </div>
             {onBack && (
               <button onClick={onBack} style={{
-                fontSize: 12, color: "#475569", background: "none",
-                border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6,
-                padding: "5px 12px", cursor: "pointer",
+                fontSize: 13, color: "#64748B", background: "none",
+                border: "1px solid #E6EAF1", borderRadius: 6,
+                padding: "6px 14px", cursor: "pointer",
               }}>
                 ← Back
               </button>
             )}
           </div>
-          <div style={{ fontSize: 12, color: "#475569", lineHeight: 1.5, marginBottom: 12 }}>
+          <div style={{ fontSize: 14, color: "#64748B", lineHeight: 1.5, marginBottom: 14 }}>
             Complete all four stages to generate your organizational profile. This takes 3–5 minutes and determines which of 40+ regulatory frameworks actually apply to you.
           </div>
 
-          {/* Progress bar with stage labels */}
+          {/* Progress bar */}
           <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
             {SECTIONS.map((s, i) => {
               const done = sectionComplete[s.id];
               return (
                 <div key={s.id} style={{ flex: 1, display: "flex", flexDirection: "column", gap: 3 }}>
                   <div style={{
-                    height: 3, borderRadius: 2,
-                    background: done ? s.color : "rgba(255,255,255,0.1)",
+                    height: 4, borderRadius: 2,
+                    background: done ? s.color : "#E6EAF1",
                     transition: "background 0.3s",
                   }} />
-                  <div style={{ fontSize: 9, color: done ? s.color : "rgba(255,255,255,0.2)", fontWeight: 600, letterSpacing: "0.05em" }}>
+                  <div style={{ fontSize: 11, color: done ? s.color : "#CBD5E1", fontWeight: 600, letterSpacing: "0.05em" }}>
                     {i + 1} of 4
                   </div>
                 </div>
@@ -295,10 +297,10 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         </div>
       </div>
 
-      <div style={{ maxWidth: 680, margin: "0 auto", padding: "32px 28px 0" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "36px 32px 0" }}>
 
-        {/* ── Stage 1 ── */}
-        <SectionHeader stage="Stage 1" title="Your Organization" color="#3B82F6" complete={sectionComplete.org} stageNum="1" />
+        {/* Stage 1 */}
+        <SectionHeader stage="Stage 1" title="Your Organization" color="#4314b6" complete={sectionComplete.org} stageNum="1" />
 
         <Question label="What does your organization do in relation to AI?" hint="This determines your position in the regulatory supply chain — it changes everything downstream.">
           <SingleSelect options={AI_ROLES} value={form.role} onChange={v => set("role", v)} />
@@ -319,8 +321,8 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
 
         {divider}
 
-        {/* ── Stage 2 ── */}
-        <SectionHeader stage="Stage 2" title="Where Your Users & Outputs Land" color="#8B5CF6" complete={sectionComplete.geo} stageNum="2" />
+        {/* Stage 2 */}
+        <SectionHeader stage="Stage 2" title="Where Your Users & Outputs Land" color="#8A61EE" complete={sectionComplete.geo} stageNum="2" />
 
         <Question label="Where is the organization legally established?" hint="Country or countries of registered incorporation / principal place of business.">
           <TextInput value={form.established} onChange={v => set("established", v)} placeholder="e.g. United States (Delaware)..." />
@@ -336,7 +338,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
 
         {divider}
 
-        {/* ── Stage 3 ── */}
+        {/* Stage 3 */}
         <SectionHeader stage="Stage 3" title="The AI System" color="#10B981" complete={sectionComplete.ai} stageNum="3" />
 
         <Question label="What does the AI system do? Select all that apply." hint="Each of these is a risk signal. Multiple signals indicate a high-risk profile regardless of jurisdiction.">
@@ -365,7 +367,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
 
         {divider}
 
-        {/* ── Stage 4 ── */}
+        {/* Stage 4 */}
         <SectionHeader stage="Stage 4" title="Maturity & Purpose" color="#F59E0B" complete={sectionComplete.maturity} stageNum="4" />
 
         <Question label="Where is the organization in its AI journey for this use case?">
@@ -377,20 +379,20 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         </Question>
 
         {/* Submit */}
-        <div style={{ marginTop: 36 }}>
+        <div style={{ marginTop: 40 }}>
           {!allComplete && (
             <div style={{
               display: "flex", gap: 8, alignItems: "center",
-              background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
-              borderRadius: 8, padding: "10px 14px", marginBottom: 14,
+              background: "#FEF2F2", border: "1px solid #FECACA",
+              borderRadius: 8, padding: "11px 16px", marginBottom: 14,
             }}>
-              <span style={{ fontSize: 13 }}>⚠</span>
-              <span style={{ fontSize: 12, color: "#FCA5A5" }}>
+              <span style={{ fontSize: 14 }}>⚠</span>
+              <span style={{ fontSize: 13, color: "#DC2626" }}>
                 Complete all four stages before generating your report. ({completedCount}/4 complete
-                {!sectionComplete.org     && " · Stage 1"}
-                {!sectionComplete.geo     && " · Stage 2"}
-                {!sectionComplete.ai      && " · Stage 3"}
-                {!sectionComplete.maturity&& " · Stage 4"}
+                {!sectionComplete.org      && " · Stage 1"}
+                {!sectionComplete.geo      && " · Stage 2"}
+                {!sectionComplete.ai       && " · Stage 3"}
+                {!sectionComplete.maturity && " · Stage 4"}
                 )
               </span>
             </div>
@@ -399,22 +401,22 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
             onClick={() => { if (allComplete && onSubmit) onSubmit(); }}
             disabled={!allComplete}
             style={{
-              width: "100%", padding: "14px 24px",
+              width: "100%", padding: "16px 24px",
               background: allComplete
-                ? "linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%)"
-                : "rgba(255,255,255,0.06)",
-              border: `1.5px solid ${allComplete ? "#3B82F6" : "rgba(255,255,255,0.1)"}`,
+                ? "linear-gradient(135deg, #4314b6 0%, #8A61EE 100%)"
+                : "#F1F5F8",
+              border: `1.5px solid ${allComplete ? "#4314b6" : "#E6EAF1"}`,
               borderRadius: 10, cursor: allComplete ? "pointer" : "not-allowed",
-              fontSize: 14, fontWeight: 700,
-              color: allComplete ? "white" : "#475569",
+              fontSize: 16, fontWeight: 700,
+              color: allComplete ? "white" : "#94A3B8",
               letterSpacing: "0.01em", transition: "all 0.2s",
-              fontFamily: "inherit",
+              fontFamily: FONT,
             }}
           >
             {allComplete ? "Generate Report →" : "Complete all stages to continue"}
           </button>
           {allComplete && (
-            <p style={{ fontSize: 11, color: "#475569", textAlign: "center", marginTop: 10 }}>
+            <p style={{ fontSize: 13, color: "#64748B", textAlign: "center", marginTop: 12 }}>
               Demo loads a sample report for SignalPath Technologies — a US accessibility tech company with EU, UK, and Canadian exposure.
             </p>
           )}

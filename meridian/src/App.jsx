@@ -2,6 +2,8 @@ import { useState } from "react";
 import ElicitationWidget from "./ElicitationWidget.jsx";
 import DemoReport from "./DemoReport.jsx";
 
+const FONT = "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif";
+
 const FEATURES = [
   {
     icon: "🗺",
@@ -26,7 +28,7 @@ const FEATURES = [
 ];
 
 export default function App() {
-  const [view, setView] = useState("landing"); // 'landing' | 'widget' | 'report'
+  const [view, setView] = useState("landing");
 
   if (view === "widget") {
     return <ElicitationWidget onSubmit={() => setView("report")} onBack={() => setView("landing")} />;
@@ -36,18 +38,17 @@ export default function App() {
     return <DemoReport onBack={() => setView("landing")} />;
   }
 
-  // Landing
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(160deg, #0A0F1E 0%, #0F1D35 50%, #0A1628 100%)",
-      fontFamily: "'DM Sans', 'Segoe UI', system-ui, sans-serif",
-      color: "#E2E8F0",
+      background: "#FFFFFF",
+      fontFamily: FONT,
+      color: "#1E293B",
     }}>
       {/* Nav */}
       <nav style={{
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
-        padding: "16px 32px",
+        borderBottom: "1px solid #E6EAF1",
+        padding: "18px 36px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -55,14 +56,15 @@ export default function App() {
         margin: "0 auto",
       }}>
         <div>
-          <span style={{ fontSize: 14, fontWeight: 800, color: "#F1F5F9", letterSpacing: "0.08em" }}>MERIDIAN</span>
-          <span style={{ fontSize: 11, color: "#475569", marginLeft: 10 }}>AI Governance Intelligence</span>
+          <span style={{ fontSize: 16, fontWeight: 800, color: "#1E293B", letterSpacing: "0.08em" }}>MERIDIAN</span>
+          <span style={{ fontSize: 13, color: "#94A3B8", marginLeft: 10 }}>AI Governance Intelligence</span>
         </div>
         <button
           onClick={() => setView("report")}
           style={{
-            fontSize: 12, color: "#94A3B8", background: "none", border: "1px solid rgba(255,255,255,0.12)",
-            borderRadius: 6, padding: "6px 14px", cursor: "pointer",
+            fontSize: 13, color: "#475569", background: "none",
+            border: "1px solid #E6EAF1", borderRadius: 6,
+            padding: "7px 16px", cursor: "pointer",
           }}
         >
           View Demo Report
@@ -70,38 +72,39 @@ export default function App() {
       </nav>
 
       {/* Hero */}
-      <div style={{ maxWidth: 780, margin: "0 auto", padding: "72px 32px 60px", textAlign: "center" }}>
+      <div style={{ maxWidth: 820, margin: "0 auto", padding: "80px 36px 64px", textAlign: "center" }}>
         <div style={{
           display: "inline-block",
-          fontSize: 10, fontWeight: 700, color: "#3B82F6",
+          fontSize: 12, fontWeight: 700, color: "#4314b6",
           textTransform: "uppercase", letterSpacing: "0.14em",
-          background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)",
-          borderRadius: 20, padding: "4px 14px", marginBottom: 28,
+          background: "#E4DFFF", border: "1px solid #8A61EE",
+          borderRadius: 20, padding: "5px 16px", marginBottom: 30,
         }}>
           Multi-jurisdictional Regulatory Intelligence
         </div>
 
         <h1 style={{
-          fontSize: 52, fontWeight: 800, color: "#F1F5F9",
-          letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 20,
+          fontSize: 62, fontWeight: 800, color: "#1E293B",
+          letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 22,
         }}>
           MERIDIAN
         </h1>
 
         <p style={{
-          fontSize: 17, color: "#94A3B8", lineHeight: 1.7, marginBottom: 36, maxWidth: 580, margin: "0 auto 36px",
+          fontSize: 20, color: "#475569", lineHeight: 1.7,
+          marginBottom: 40, maxWidth: 620, margin: "0 auto 40px",
         }}>
-          Understand which AI regulations apply to your organization, map your obligations across jurisdictions, and produce a structured compliance report — in minutes.
+          Understand which AI regulations apply to your organization, map your obligations across jurisdictions, and produce a structured compliance report, in minutes.
         </p>
 
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
           <button
             onClick={() => setView("widget")}
             style={{
-              padding: "14px 32px",
-              background: "linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%)",
+              padding: "16px 36px",
+              background: "linear-gradient(135deg, #4314b6 0%, #8A61EE 100%)",
               border: "none", borderRadius: 10, cursor: "pointer",
-              fontSize: 15, fontWeight: 700, color: "white",
+              fontSize: 18, fontWeight: 700, color: "white",
               letterSpacing: "0.01em", transition: "opacity 0.2s",
             }}
             onMouseOver={e => e.currentTarget.style.opacity = "0.88"}
@@ -112,53 +115,55 @@ export default function App() {
           <button
             onClick={() => setView("report")}
             style={{
-              padding: "14px 32px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.15)", borderRadius: 10, cursor: "pointer",
-              fontSize: 15, fontWeight: 600, color: "#CBD5E1",
+              padding: "16px 36px",
+              background: "#F1F5F8",
+              border: "1px solid #E6EAF1", borderRadius: 10, cursor: "pointer",
+              fontSize: 18, fontWeight: 600, color: "#475569",
               transition: "background 0.2s",
             }}
-            onMouseOver={e => e.currentTarget.style.background = "rgba(255,255,255,0.09)"}
-            onMouseOut={e => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
+            onMouseOver={e => e.currentTarget.style.background = "#E4DFFF"}
+            onMouseOut={e => e.currentTarget.style.background = "#F1F5F8"}
           >
             View Sample Report
           </button>
         </div>
 
-        <p style={{ fontSize: 12, color: "#334155", marginTop: 16 }}>
+        <p style={{ fontSize: 14, color: "#94A3B8", marginTop: 18 }}>
           Demo loads a sample report for SignalPath Technologies — a US accessibility tech company with EU, UK, and Canadian exposure.
         </p>
       </div>
 
       {/* Features */}
-      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 32px 80px" }}>
+      <div style={{ maxWidth: 1060, margin: "0 auto", padding: "0 36px 88px" }}>
         <div style={{
-          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16,
+          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 18,
         }}>
           {FEATURES.map((f, i) => (
             <div key={i} style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 12, padding: "22px 20px",
+              background: "#FFFFFF",
+              border: "1px solid #E6EAF1",
+              borderRadius: 12, padding: "26px 24px",
+              boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
             }}>
-              <div style={{ fontSize: 24, marginBottom: 10 }}>{f.icon}</div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: "#F1F5F9", marginBottom: 6 }}>{f.title}</div>
-              <p style={{ fontSize: 13, color: "#64748B", lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
+              <div style={{ fontSize: 28, marginBottom: 12 }}>{f.icon}</div>
+              <div style={{ fontSize: 17, fontWeight: 700, color: "#1E293B", marginBottom: 8 }}>{f.title}</div>
+              <p style={{ fontSize: 15, color: "#64748B", lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Frameworks badge row */}
-        <div style={{ marginTop: 48, textAlign: "center" }}>
-          <p style={{ fontSize: 11, color: "#334155", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 14 }}>
+        <div style={{ marginTop: 52, textAlign: "center" }}>
+          <p style={{ fontSize: 13, color: "#64748B", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>
             Frameworks covered
           </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             {["EU AI Act", "UK GDPR / ICO", "US Federal", "Colorado AI Act", "Illinois BIPA", "Canada AIDA", "NIST AI RMF", "ISO 42001", "Australia", "Singapore", "Brazil", "UAE"].map(f => (
               <span key={f} style={{
-                fontSize: 11, color: "#475569",
-                background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 4, padding: "4px 10px",
+                fontSize: 13, color: "#4314b6",
+                background: "#E4DFFF", border: "1px solid #8A61EE",
+                borderRadius: 4, padding: "5px 12px",
+                fontWeight: 500,
               }}>{f}</span>
             ))}
           </div>
@@ -167,9 +172,9 @@ export default function App() {
 
       {/* Footer */}
       <div style={{
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        padding: "20px 32px", textAlign: "center",
-        fontSize: 11, color: "#334155",
+        borderTop: "1px solid #E6EAF1",
+        padding: "22px 36px", textAlign: "center",
+        fontSize: 13, color: "#64748B",
       }}>
         MERIDIAN · AI Governance Intelligence · Research output only — not legal advice
       </div>

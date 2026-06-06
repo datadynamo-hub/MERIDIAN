@@ -653,28 +653,28 @@ export default function DemoReport({ onBack }) {
   const tier1Count = jurisdictions.filter(j => j.tier === 1).length;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#F8FAFC", fontFamily: "'DM Sans', 'Segoe UI', system-ui, sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#F8FAFC", fontFamily: "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif" }}>
       {/* Header */}
-      <header style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #1E3A5F 100%)", color: "white", padding: "20px 24px" }}>
+      <header style={{ background: "linear-gradient(135deg, #4314b6 0%, #3a0fa0 100%)", color: "white", padding: "24px 28px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 16 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 18 }}>
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-                <p style={{ fontSize: 11, fontWeight: 800, color: "#3B82F6", textTransform: "uppercase", letterSpacing: "0.12em", margin: 0 }}>MERIDIAN</p>
-                <span style={{ fontSize: 10, color: "#334155" }}>·</span>
-                <p style={{ fontSize: 10, color: "#64748B", margin: 0 }}>Multi-jurisdictional Regulatory Intelligence</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <p style={{ fontSize: 13, fontWeight: 800, color: "#E4DFFF", textTransform: "uppercase", letterSpacing: "0.12em", margin: 0 }}>MERIDIAN</p>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>·</span>
+                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", margin: 0 }}>Multi-jurisdictional Regulatory Intelligence</p>
               </div>
-              <h1 style={{ fontSize: 20, fontWeight: 800, margin: "0 0 4px", letterSpacing: "-0.02em" }}>{organisation.name}</h1>
-              <p style={{ fontSize: 13, color: "#94A3B8", margin: 0 }}>{organisation.role} · {organisation.established}</p>
+              <h1 style={{ fontSize: 24, fontWeight: 800, margin: "0 0 5px", letterSpacing: "-0.02em" }}>{organisation.name}</h1>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", margin: 0 }}>{organisation.role} · {organisation.established}</p>
             </div>
-            <div style={{ textAlign: "right", display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
-              <p style={{ fontSize: 12, color: "#64748B", margin: 0 }}>Generated {generatedDate}</p>
-              <span style={{ fontSize: 10, background: "#FEF3C7", color: "#92400E", padding: "2px 8px", borderRadius: 4, fontWeight: 600 }}>⚠ Research only — not legal advice</span>
+            <div style={{ textAlign: "right", display: "flex", flexDirection: "column", gap: 7, alignItems: "flex-end" }}>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0 }}>Generated {generatedDate}</p>
+              <span style={{ fontSize: 12, background: "#FEF3C7", color: "#92400E", padding: "3px 10px", borderRadius: 4, fontWeight: 600 }}>⚠ Research only — not legal advice</span>
               {onBack && (
                 <button onClick={onBack} style={{
-                  fontSize: 11, color: "#475569", background: "none",
-                  border: "1px solid rgba(255,255,255,0.15)", borderRadius: 6,
-                  padding: "4px 10px", cursor: "pointer",
+                  fontSize: 13, color: "rgba(255,255,255,0.8)", background: "none",
+                  border: "1px solid rgba(255,255,255,0.3)", borderRadius: 6,
+                  padding: "5px 12px", cursor: "pointer",
                 }}>
                   ← Back to MERIDIAN
                 </button>
@@ -684,14 +684,14 @@ export default function DemoReport({ onBack }) {
 
           {/* Stats pills */}
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            <span style={{ background: "rgba(220,38,38,0.2)", border: "1px solid rgba(220,38,38,0.4)", color: "#FCA5A5", padding: "4px 12px", borderRadius: 20, fontSize: 12, fontWeight: 600 }}>
+            <span style={{ background: "rgba(220,38,38,0.25)", border: "1px solid rgba(220,38,38,0.5)", color: "#FCA5A5", padding: "5px 14px", borderRadius: 20, fontSize: 13, fontWeight: 600 }}>
               {tier1Count} Directly Applicable Jurisdictions
             </span>
             {jurisdictions.map(j => {
               const tc = TIER_CONFIG[j.tier];
               return (
                 <span key={j.code} onClick={() => setActiveTab("map")}
-                  style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "#CBD5E1", padding: "4px 12px", borderRadius: 20, fontSize: 12, cursor: "pointer" }}>
+                  style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.85)", padding: "5px 14px", borderRadius: 20, fontSize: 13, cursor: "pointer" }}>
                   <span style={{ color: tc.hex }}>●</span> {j.name}
                 </span>
               );
@@ -702,16 +702,17 @@ export default function DemoReport({ onBack }) {
 
       {/* Tab nav */}
       <nav style={{ background: "white", borderBottom: "1px solid #E2E8F0", position: "sticky", top: 0, zIndex: 10 }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", overflowX: "auto" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 28px", display: "flex", overflowX: "auto" }}>
           {TABS.map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)}
               style={{
-                padding: "12px 16px", fontSize: 13,
+                padding: "14px 18px", fontSize: 15,
                 fontWeight: activeTab === tab.id ? 700 : 500,
-                color: activeTab === tab.id ? "#1D4ED8" : "#64748B",
+                color: activeTab === tab.id ? "#4314b6" : "#64748B",
                 background: "none", border: "none",
-                borderBottom: activeTab === tab.id ? "2px solid #1D4ED8" : "2px solid transparent",
+                borderBottom: activeTab === tab.id ? "2px solid #4314b6" : "2px solid transparent",
                 cursor: "pointer", transition: "all 0.15s", whiteSpace: "nowrap",
+                fontFamily: "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif",
               }}>
               {tab.label}
             </button>
@@ -720,7 +721,7 @@ export default function DemoReport({ onBack }) {
       </nav>
 
       {/* Content */}
-      <main style={{ maxWidth: 1100, margin: "0 auto", padding: "24px" }}>
+      <main style={{ maxWidth: 1100, margin: "0 auto", padding: "28px" }}>
         {activeTab === "overview"     && <OverviewTab />}
         {activeTab === "map"          && <MapTab />}
         {activeTab === "obligations"  && <ObligationsTab />}
@@ -729,7 +730,7 @@ export default function DemoReport({ onBack }) {
         {activeTab === "sources"      && <SourcesTab />}
       </main>
 
-      <footer style={{ borderTop: "1px solid #E2E8F0", padding: "16px 24px", textAlign: "center", fontSize: 11, color: "#94A3B8" }}>
+      <footer style={{ borderTop: "1px solid #E2E8F0", padding: "20px 28px", textAlign: "center", fontSize: 13, color: "#94A3B8" }}>
         MERIDIAN · AI Governance Intelligence · Research output only — not legal advice
       </footer>
     </div>
