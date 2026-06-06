@@ -655,12 +655,12 @@ export default function DemoReport({ onBack }) {
   return (
     <div style={{ minHeight: "100vh", background: "#F8FAFC", fontFamily: "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif" }}>
       {/* Header */}
-      <header style={{ background: "linear-gradient(135deg, #4314b6 0%, #3a0fa0 100%)", color: "white", padding: "24px 28px" }}>
+      <header style={{ background: "linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%)", color: "white", padding: "24px 28px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 18 }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                <p style={{ fontSize: 13, fontWeight: 800, color: "#E4DFFF", textTransform: "uppercase", letterSpacing: "0.12em", margin: 0 }}>MERIDIAN</p>
+                <p style={{ fontSize: 13, fontWeight: 800, color: "#DBEAFE", textTransform: "uppercase", letterSpacing: "0.12em", margin: 0 }}>MERIDIAN</p>
                 <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>·</span>
                 <p style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", margin: 0 }}>Multi-jurisdictional Regulatory Intelligence</p>
               </div>
@@ -708,9 +708,9 @@ export default function DemoReport({ onBack }) {
               style={{
                 padding: "14px 18px", fontSize: 15,
                 fontWeight: activeTab === tab.id ? 700 : 500,
-                color: activeTab === tab.id ? "#4314b6" : "#64748B",
+                color: activeTab === tab.id ? "#1D4ED8" : "#64748B",
                 background: "none", border: "none",
-                borderBottom: activeTab === tab.id ? "2px solid #4314b6" : "2px solid transparent",
+                borderBottom: activeTab === tab.id ? "2px solid #1D4ED8" : "2px solid transparent",
                 cursor: "pointer", transition: "all 0.15s", whiteSpace: "nowrap",
                 fontFamily: "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif",
               }}>

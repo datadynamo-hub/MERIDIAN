@@ -41,9 +41,9 @@ export default function App() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#FFFFFF",
+      background: "#F8FAFC",
       fontFamily: FONT,
-      color: "#1E293B",
+      color: "#0F172A",
     }}>
       {/* Nav */}
       <nav style={{
@@ -56,8 +56,8 @@ export default function App() {
         margin: "0 auto",
       }}>
         <div>
-          <span style={{ fontSize: 16, fontWeight: 800, color: "#1E293B", letterSpacing: "0.08em" }}>MERIDIAN</span>
-          <span style={{ fontSize: 13, color: "#94A3B8", marginLeft: 10 }}>AI Governance Intelligence</span>
+          <span style={{ fontSize: 16, fontWeight: 800, color: "#0F172A", letterSpacing: "0.08em" }}>MERIDIAN</span>
+          <span style={{ fontSize: 12, color: "#94A3B8", marginLeft: 10 }}>Multi-jurisdictional Regulatory Intelligence and Decision Infrastructure for AI Navigation</span>
         </div>
         <button
           onClick={() => setView("report")}
@@ -75,16 +75,16 @@ export default function App() {
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "80px 36px 64px", textAlign: "center" }}>
         <div style={{
           display: "inline-block",
-          fontSize: 12, fontWeight: 700, color: "#4314b6",
+          fontSize: 12, fontWeight: 700, color: "#1D4ED8",
           textTransform: "uppercase", letterSpacing: "0.14em",
-          background: "#E4DFFF", border: "1px solid #8A61EE",
+          background: "#DBEAFE", border: "1px solid #3B82F6",
           borderRadius: 20, padding: "5px 16px", marginBottom: 30,
         }}>
           Multi-jurisdictional Regulatory Intelligence
         </div>
 
         <h1 style={{
-          fontSize: 62, fontWeight: 800, color: "#1E293B",
+          fontSize: 62, fontWeight: 800, color: "#0F172A",
           letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 22,
         }}>
           MERIDIAN
@@ -102,7 +102,7 @@ export default function App() {
             onClick={() => setView("widget")}
             style={{
               padding: "16px 36px",
-              background: "linear-gradient(135deg, #4314b6 0%, #8A61EE 100%)",
+              background: "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)",
               border: "none", borderRadius: 10, cursor: "pointer",
               fontSize: 18, fontWeight: 700, color: "white",
               letterSpacing: "0.01em", transition: "opacity 0.2s",
@@ -121,7 +121,7 @@ export default function App() {
               fontSize: 18, fontWeight: 600, color: "#475569",
               transition: "background 0.2s",
             }}
-            onMouseOver={e => e.currentTarget.style.background = "#E4DFFF"}
+            onMouseOver={e => e.currentTarget.style.background = "#DBEAFE"}
             onMouseOut={e => e.currentTarget.style.background = "#F1F5F8"}
           >
             View Sample Report
@@ -146,7 +146,7 @@ export default function App() {
               boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
             }}>
               <div style={{ fontSize: 28, marginBottom: 12 }}>{f.icon}</div>
-              <div style={{ fontSize: 17, fontWeight: 700, color: "#1E293B", marginBottom: 8 }}>{f.title}</div>
+              <div style={{ fontSize: 17, fontWeight: 700, color: "#0F172A", marginBottom: 8 }}>{f.title}</div>
               <p style={{ fontSize: 15, color: "#64748B", lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
             </div>
           ))}
@@ -160,8 +160,8 @@ export default function App() {
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             {["EU AI Act", "UK GDPR / ICO", "US Federal", "Colorado AI Act", "Illinois BIPA", "Canada AIDA", "NIST AI RMF", "ISO 42001", "Australia", "Singapore", "Brazil", "UAE"].map(f => (
               <span key={f} style={{
-                fontSize: 13, color: "#4314b6",
-                background: "#E4DFFF", border: "1px solid #8A61EE",
+                fontSize: 13, color: "#1D4ED8",
+                background: "#DBEAFE", border: "1px solid #3B82F6",
                 borderRadius: 4, padding: "5px 12px",
                 fontWeight: 500,
               }}>{f}</span>

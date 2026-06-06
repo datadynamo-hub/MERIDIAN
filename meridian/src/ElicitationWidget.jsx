@@ -3,8 +3,8 @@ import { useState } from "react";
 const FONT = "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif";
 
 const SECTIONS = [
-  { id: "org",      stage: "Stage 1", title: "Your Organization",               color: "#4314b6" },
-  { id: "geo",      stage: "Stage 2", title: "Where Your Users & Outputs Land", color: "#8A61EE" },
+  { id: "org",      stage: "Stage 1", title: "Your Organization",               color: "#1D4ED8" },
+  { id: "geo",      stage: "Stage 2", title: "Where Your Users & Outputs Land", color: "#3B82F6" },
   { id: "ai",       stage: "Stage 3", title: "The AI System",                   color: "#10B981" },
   { id: "maturity", stage: "Stage 4", title: "Maturity & Purpose",              color: "#F59E0B" },
 ];
@@ -106,20 +106,20 @@ function SingleSelect({ options, value, onChange }) {
           <button key={val} onClick={() => onChange(val)} style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "11px 14px",
-            background: sel ? "#E4DFFF" : "#FFFFFF",
-            border: `1.5px solid ${sel ? "#4314b6" : "#E6EAF1"}`,
+            background: sel ? "#DBEAFE" : "#FFFFFF",
+            border: `1.5px solid ${sel ? "#1D4ED8" : "#E6EAF1"}`,
             borderRadius: 8, cursor: "pointer", textAlign: "left", transition: "all 0.15s",
           }}>
             <div style={{
               width: 18, height: 18, borderRadius: "50%", flexShrink: 0,
-              border: `2px solid ${sel ? "#4314b6" : "#CBD5E1"}`,
-              background: sel ? "#4314b6" : "transparent",
+              border: `2px solid ${sel ? "#1D4ED8" : "#CBD5E1"}`,
+              background: sel ? "#1D4ED8" : "transparent",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               {sel && <div style={{ width: 6, height: 6, borderRadius: "50%", background: "white" }} />}
             </div>
             <div>
-              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#4314b6" : "#1E293B" }}>{label}</div>
+              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#1D4ED8" : "#0F172A" }}>{label}</div>
               {desc && <div style={{ fontSize: 13, color: "#64748B", marginTop: 2 }}>{desc}</div>}
             </div>
           </button>
@@ -143,20 +143,20 @@ function MultiSelect({ options, values, onChange }) {
           <button key={val} onClick={() => toggle(val)} style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "11px 14px",
-            background: sel ? "#E4DFFF" : "#FFFFFF",
-            border: `1.5px solid ${sel ? "#4314b6" : "#E6EAF1"}`,
+            background: sel ? "#DBEAFE" : "#FFFFFF",
+            border: `1.5px solid ${sel ? "#1D4ED8" : "#E6EAF1"}`,
             borderRadius: 8, cursor: "pointer", textAlign: "left", transition: "all 0.15s",
           }}>
             <div style={{
               width: 18, height: 18, borderRadius: 4, flexShrink: 0,
-              border: `2px solid ${sel ? "#4314b6" : "#CBD5E1"}`,
-              background: sel ? "#4314b6" : "transparent",
+              border: `2px solid ${sel ? "#1D4ED8" : "#CBD5E1"}`,
+              background: sel ? "#1D4ED8" : "transparent",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               {sel && <span style={{ color: "white", fontSize: 12, lineHeight: 1 }}>✓</span>}
             </div>
             <div>
-              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#4314b6" : "#1E293B" }}>{label}</div>
+              <div style={{ fontSize: 15, fontWeight: 600, color: sel ? "#1D4ED8" : "#0F172A" }}>{label}</div>
               {desc && <div style={{ fontSize: 13, color: "#64748B", marginTop: 2 }}>{desc}</div>}
             </div>
           </button>
@@ -172,7 +172,7 @@ function TextInput({ value, onChange, placeholder }) {
       style={{
         width: "100%",
         background: "#FFFFFF", border: "1.5px solid #E6EAF1",
-        borderRadius: 8, padding: "11px 14px", fontSize: 15, color: "#1E293B",
+        borderRadius: 8, padding: "11px 14px", fontSize: 15, color: "#0F172A",
         resize: "vertical", fontFamily: FONT, outline: "none",
         boxSizing: "border-box", lineHeight: 1.5,
       }}
@@ -197,7 +197,7 @@ function SectionHeader({ stage, title, color, complete, stageNum }) {
       </div>
       <div>
         <div style={{ fontSize: 11, fontWeight: 700, color, textTransform: "uppercase", letterSpacing: "0.1em" }}>{stage}</div>
-        <div style={{ fontSize: 17, fontWeight: 700, color: "#1E293B" }}>{title}</div>
+        <div style={{ fontSize: 17, fontWeight: 700, color: "#0F172A" }}>{title}</div>
       </div>
     </div>
   );
@@ -241,7 +241,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#FFFFFF",
+      background: "#F8FAFC",
       fontFamily: FONT,
       padding: "0 0 60px",
     }}>
@@ -255,10 +255,10 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
             <div>
-              <div style={{ fontSize: 12, fontWeight: 700, color: "#4314b6", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 3 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "#1D4ED8", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 3 }}>
                 MERIDIAN
               </div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: "#1E293B", letterSpacing: "-0.02em" }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.02em" }}>
                 Organization Scoping
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "36px 32px 0" }}>
 
         {/* Stage 1 */}
-        <SectionHeader stage="Stage 1" title="Your Organization" color="#4314b6" complete={sectionComplete.org} stageNum="1" />
+        <SectionHeader stage="Stage 1" title="Your Organization" color="#1D4ED8" complete={sectionComplete.org} stageNum="1" />
 
         <Question label="What does your organization do in relation to AI?" hint="This determines your position in the regulatory supply chain — it changes everything downstream.">
           <SingleSelect options={AI_ROLES} value={form.role} onChange={v => set("role", v)} />
@@ -322,7 +322,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
         {divider}
 
         {/* Stage 2 */}
-        <SectionHeader stage="Stage 2" title="Where Your Users & Outputs Land" color="#8A61EE" complete={sectionComplete.geo} stageNum="2" />
+        <SectionHeader stage="Stage 2" title="Where Your Users & Outputs Land" color="#3B82F6" complete={sectionComplete.geo} stageNum="2" />
 
         <Question label="Where is the organization legally established?" hint="Country or countries of registered incorporation / principal place of business.">
           <TextInput value={form.established} onChange={v => set("established", v)} placeholder="e.g. United States (Delaware)..." />
@@ -403,9 +403,9 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
             style={{
               width: "100%", padding: "16px 24px",
               background: allComplete
-                ? "linear-gradient(135deg, #4314b6 0%, #8A61EE 100%)"
+                ? "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)"
                 : "#F1F5F8",
-              border: `1.5px solid ${allComplete ? "#4314b6" : "#E6EAF1"}`,
+              border: `1.5px solid ${allComplete ? "#1D4ED8" : "#E6EAF1"}`,
               borderRadius: 10, cursor: allComplete ? "pointer" : "not-allowed",
               fontSize: 16, fontWeight: 700,
               color: allComplete ? "white" : "#94A3B8",
