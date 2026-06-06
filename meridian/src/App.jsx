@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ElicitationWidget from "./ElicitationWidget.jsx";
 import DemoReport from "./DemoReport.jsx";
+import ProfileBridge from "./ProfileBridge.jsx";
 
 const FONT = "'Source Sans 3', 'DM Sans', 'Segoe UI', system-ui, sans-serif";
 
@@ -8,7 +9,7 @@ const FEATURES = [
   {
     icon: "🗺",
     title: "Jurisdiction Mapping",
-    desc: "Identify which AI regulations apply based on your org type, sector, and geography — across 15+ frameworks."
+    desc: "Identify which AI regulations apply based on your org type, sector, and geography across 15+ frameworks."
   },
   {
     icon: "⚖",
@@ -23,15 +24,36 @@ const FEATURES = [
   {
     icon: "📋",
     title: "Action Plan",
-    desc: "Prioritized compliance roadmap organized by horizon — immediate, near-term, and medium-term."
+    desc: "Prioritized compliance roadmap organized by horizon: immediate, near-term, and medium-term."
   },
 ];
 
 export default function App() {
   const [view, setView] = useState("landing");
+  const [formData, setFormData] = useState(null);
+
+  const handleSubmit = (data) => {
+    setFormData(data);
+    setView("profile");
+  };
 
   if (view === "widget") {
-    return <ElicitationWidget onSubmit={() => setView("report")} onBack={() => setView("landing")} />;
+    return (
+      <ElicitationWidget
+        onSubmit={handleSubmit}
+        onBack={() => setView("landing")}
+      />
+    );
+  }
+
+  if (view === "profile") {
+    return (
+      <ProfileBridge
+        formData={formData}
+        onView={() => setView("report")}
+        onBack={() => setView("widget")}
+      />
+    );
   }
 
   if (view === "report") {
@@ -129,7 +151,7 @@ export default function App() {
         </div>
 
         <p style={{ fontSize: 14, color: "#94A3B8", marginTop: 18 }}>
-          Demo loads a sample report for SignalPath Technologies — a US accessibility tech company with EU, UK, and Canadian exposure.
+          Runs a scoping assessment then loads the SignalPath Technologies compliance scenario.
         </p>
       </div>
 

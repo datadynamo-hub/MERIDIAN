@@ -398,7 +398,7 @@ export default function ElicitationWidget({ onSubmit, onBack }) {
             </div>
           )}
           <button
-            onClick={() => { if (allComplete && onSubmit) onSubmit(); }}
+            onClick={() => { if (allComplete && onSubmit) onSubmit(form); }}
             disabled={!allComplete}
             style={{
               width: "100%", padding: "16px 24px",
