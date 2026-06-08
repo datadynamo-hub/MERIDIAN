@@ -8,13 +8,28 @@
 
 ---
 
+## From Framework to Case Study
+
+MERIDIAN was built on [BenjBruce's](https://github.com/BenjBruce) regulatory intelligence framework [ARIA_V1](https://github.com/BenjBruce/ARIA_V1). His architecture was the starting point. This is the build.
+
+Changed by design:
+
+- **Generic sample organization:** replaced with SignalPath Technologies, a fictional Deaf accessibility company in the Video Relay Service industry. A regulatory intelligence tool is only as useful as the domain it's applied to.
+- **Intake questions:** resequenced to surface biometric data and high-risk AI triggers earlier. The EU AI Act and GDPR classification decision happens at intake, not at output.
+- **Output format:** rebuilt as a structured HTML compliance report with freshness warnings, unknowns register, and jurisdiction-level confidence flags. A governance deliverable needs to be audit-ready, not just readable.
+- **Knowledge base:** extended with FCC Part 64, ADA Title IV, Illinois BIPA, and California CPRA obligations. SignalPath's regulatory exposure doesn't stop at the EU border.
+
+Extending a strong framework with a real domain problem is a deliberate choice. The architecture was his. The case study is mine.
+
+---
+
 ## What This Is
 
 Two components. One output.
 
 **The React app** is a client-side portfolio demo deployed on Vercel. A 4-stage intake form scopes the organization: role in the AI supply chain, sector, geography, AI activity, biometric data exposure, oversight model, and maturity. It generates a 6-tab interactive compliance report covering jurisdiction applicability, obligations, cross-cutting themes, an action plan, and a full sources register. No backend. No external API calls. Client-side only.
 
-**The MERIDIAN Knowledge Base** is the intelligence layer. Ten structured markdown files: a researcher identity, 12 operating rules, a branching elicitation protocol, a jurisdiction routing engine, a six-stage research methodology, a live source fetching protocol, a tiered source allowlist, and worked calibration examples. When connected, MERIDIAN runs the full elicitation, applies applicability logic across 40+ frameworks in 15 jurisdictions, fetches primary sources in real time, and produces citable, tiered compliance output. The React app shows what that output looks like. The knowledge base delivers it with live research.
+**The MERIDIAN Knowledge Base** is the intelligence layer. Ten structured markdown files: a researcher identity, 12 operating rules, a branching intake protocol, a jurisdiction routing engine, a six-stage research methodology, a live source fetching protocol, a tiered source allowlist, and worked calibration examples. When connected, MERIDIAN runs the full intake scoping, applies applicability logic across 40+ frameworks in 15 jurisdictions, fetches primary sources in real time, and produces citable, tiered compliance output. The React app shows what that output looks like. The knowledge base delivers it with live research.
 
 The demo report is hardcoded to a realistic scenario: SignalPath Technologies. That scenario was chosen deliberately. More on it below.
 
@@ -22,7 +37,7 @@ The demo report is hardcoded to a realistic scenario: SignalPath Technologies. T
 
 ## The Scenario
 
-**Organization:** SignalPath Technologies. Fictional accessibility technology company providing AI-powered communication services for Deaf and hard-of-hearing communities. 680 employees. Incorporated in Delaware, headquartered in Salt Lake City. Users across the United States, Canada, United Kingdom, and Germany.
+**Organization:** SignalPath Technologies. Fictional accessibility technology company providing real-time communication services for Deaf and hard-of-hearing communities. 5,000+ employees. This is not a hypothetical industry. It mirrors the current operating reality of the dominant player in US deaf accessibility, including the regulatory exposure that comes with it.
 
 **The AI system:** Real-time speech and sign language recognition, automated captioning, biometric voice and gesture processing. Deployed via third-party GPAI API. Certified human captioners on-the-loop.
 
@@ -40,7 +55,7 @@ A standard fintech credit scoring scenario would have been easier to build and l
 Landing  →  Organization Scoping (4 stages)  →  Generate Report  →  Interactive Report (6 tabs)
 ```
 
-### Elicitation — 4 Stages
+### Intake Form — 4 Stages
 
 | Stage | What It Captures |
 |-------|-----------------|
@@ -138,7 +153,7 @@ MERIDIAN/
 
 ## About
 
-This build: Jonathan Khan, Data Infrastructure and AI Governance Professional. MERIDIAN is original work. Built because most AI compliance tools tell you what regulations exist, not which ones apply to you. Building publicly.
+This build: Jonathan Khan, Data Infrastructure and AI Governance Professional. Built because most AI compliance tools tell you what regulations exist, not which ones apply to you. Building publicly.
 
 Follow the build on LinkedIn: [Jonathan Khan](https://www.linkedin.com/in/jonathan-k-184393120/)
 
